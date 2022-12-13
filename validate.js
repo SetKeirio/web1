@@ -1,5 +1,5 @@
 window.onload = function() {
-  alert('Страница загружена');
+  //alert('Страница загружена');
 
   /**$.ajax({
     url: 'http://localhost:3000/script.php',
@@ -104,7 +104,7 @@ $('#dataform').on('submit', function(event) {
          return;
     }
     $.ajax({
-      url: 'http://localhost:3000/sanya.php',
+      url: 'http://localhost:3000/script.php',
       method: 'POST',
       data: $(this).serialize(),
       dataType: "json",
@@ -113,10 +113,10 @@ $('#dataform').on('submit', function(event) {
       },
       success: function(data) {
         $('.button').attr('disabled', false);
-        data.forEach(({ x, y, r, validate, nowTime, executeTime, inArea }) => {
+        /*data.forEach(({ x, y, r, validate, nowTime, executeTime, inArea }) => {
           alert(x + y + r + validate + nowTime + executeTime + inArea + data.length);
-        });
-          /*
+        });*/
+        if (data.validate){
           let y = data.y.replace(",", ".");
           const table = document.getElementById("status-table");
           const newRow = document.createElement("tr");
@@ -139,8 +139,7 @@ $('#dataform').on('submit', function(event) {
           newRow.appendChild(nowTime);
           newRow.appendChild(inArea);
           table.appendChild(newRow);
-      
-        }*/
+        }
       }
     });
   });

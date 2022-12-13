@@ -52,13 +52,13 @@
     }
     $executeTime = round(microtime(true) - $_SERVER['REQUEST_TIME_FLOAT'], 4);
     $nowTime = date('H:i:s', time());
-    $answer = json_decode($_SESSION["status"]);
+    //$answer = json_decode($_SESSION["status"]);
     if ($valid){
-        $answer[] = array("x" => $x, "y" => $y, "r" => $r, "validate" => $valid, "nowTime" => $nowTime, "executeTime" => $executeTime, "inArea" => $isInArea);
+        $answer = array("x" => $x, "y" => $y, "r" => $r, "validate" => $valid, "nowTime" => $nowTime, "executeTime" => $executeTime, "inArea" => $isInArea);
     }
     $answer = json_encode($answer);
-    $_SESSION["status"] = $answer;
-    echo $_SESSION["status"];
+    //$_SESSION["status"] = $answer;
+    echo $answer;
     //print_r($_SESSION["status"]);
     //echo $answer;
     //$answer = "x = {$x}, y = {$y}, r = {$r}, valid = {$valid}, inArea = {$isInArea}, executeTime = {$executeTime}, nowTime = {$nowTime}";
